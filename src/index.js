@@ -3,11 +3,35 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Notfound from './pages/NotFound';
+import Home from './pages/Home';
+import SearchCity from './pages/SearchCity/SearchCity';
+import SearchCityResult from './pages/SearchCityResult/SearchCityResult';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <Notfound />,
+    children: [
+      {index: true, element: <Home />},
+      {
+        path: '/SearchCity', 
+        element: <SearchCity />
+      },
+      {
+        path: '/SearchCityResult', 
+        element: <SearchCityResult />
+      },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
