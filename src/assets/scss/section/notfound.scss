@@ -1,0 +1,8 @@
+.notfound {
+    @include center-styles;
+    gap: 40px;
+
+    p {
+        text-align: center;
+    }
+}

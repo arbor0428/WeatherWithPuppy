@@ -11,6 +11,11 @@
 
     &__info {
         &__top {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+
             img {
                 width: 12rem;
             }
@@ -25,12 +30,12 @@
 
         &__bot {
             margin: 0 auto;
-            padding: 20px 40px;
+            padding: 20px 50px;
             border-radius: 8px;
             background-color: var(--gray);
 
             p {
-                padding: 5px 0;
+                padding: 2px 0;
                 font-size: 0.875rem;
             }
         }

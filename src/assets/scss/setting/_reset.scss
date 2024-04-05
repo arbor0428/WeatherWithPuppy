@@ -74,10 +74,27 @@ button {
     border: none;
     outline: none;
     font-family: var(--Main-font);
+    color: #000;
 }
 
 #root {
     margin: 0 auto;
     max-width: 1200px;
     min-height: 100vh;
+
+    &.blue {
+        background-color: blue;
+    }
+
+    &.green {
+        background-color: green;
+    }
+
+    &.red {
+        background-color: red;
+    }
+
+    &.black {
+        background-color: black;
+    }
 }
