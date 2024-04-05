@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = "/B552584/ArpltnStatsSvc/getCtprvnMesureSidoLIst";
+const API_URL = "https://apis.data.go.kr/B552584/ArpltnStatsSvc/getCtprvnMesureSidoLIst";
 const API_KEY = process.env.REACT_APP_PUBLICDATA_API_KEY;
 
 // 선택된 시/도에 해당하는 시/구 목록을 가져오는 함수

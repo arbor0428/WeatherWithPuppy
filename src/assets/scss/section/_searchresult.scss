@@ -1,0 +1,46 @@
+.searchresult {
+    @include center-styles;
+    gap: 40px;
+
+    &__title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        font-weight: 900;
+        text-align: center;
+    }
+
+    &__info {
+        &__top {
+            img {
+                width: 12rem;
+            }
+
+            p {
+                padding: 40px 0;
+                font-size: 2rem;
+                font-weight: 700;
+                text-align: center;
+            }
+        }
+
+        &__bot {
+            margin: 0 auto;
+            padding: 20px 40px;
+            border-radius: 8px;
+            background-color: var(--gray);
+
+            p {
+                padding: 5px 0;
+                font-size: 0.875rem;
+            }
+        }
+    }
+
+    &__modal {
+        div {
+            text-align: center;
+            font-size: 1.875rem;
+            font-weight: 700;
+        }
+    }
+}

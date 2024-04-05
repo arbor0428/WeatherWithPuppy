@@ -58,21 +58,25 @@ function SearchWeather() {
 
     return (
         <section className='searchweather'>
-            <h2>살고 계신 도시를 선택해주세요!</h2>
+            <h2 className='searchweather__title'>살고 계신 도시를 선택해주세요!</h2>
             <form onSubmit={handleSearch}>
-                <label htmlFor="sido">시/도 선택: </label>
-                <select id="sido" value={selectedSido} onChange={handleChangeSido}>
-                    {sidos.map(sido => (
-                        <option key={sido} value={sido}>{sido}</option>
-                    ))}
-                </select>
-                <label htmlFor="city">시/구 선택: </label>
-                <select id="city" onChange={handleChangeCity}>
-                    {cityNames.map((cityName, index) => (
-                        <option key={index} value={cityName}>{cityName}</option>
-                    ))}
-                </select>
-                <button type="submit">검색</button>
+                <div className='searchweather__select'>
+                    <label htmlFor="sido">시/도 선택: </label>
+                    <select id="sido" value={selectedSido} onChange={handleChangeSido}>
+                        {sidos.map(sido => (
+                            <option key={sido} value={sido}>{sido}</option>
+                        ))}
+                    </select>
+                </div>
+                <div className='searchweather__select'>
+                    <label htmlFor="city">시/구 선택: </label>
+                    <select id="city" onChange={handleChangeCity}>
+                        {cityNames.map((cityName, index) => (
+                            <option key={index} value={cityName}>{cityName}</option>
+                        ))}
+                    </select>
+                </div>
+                <button className='btn' type="submit">검색</button>
             </form>
         </section>
     );

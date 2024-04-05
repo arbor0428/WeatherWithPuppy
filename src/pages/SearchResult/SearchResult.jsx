@@ -3,18 +3,22 @@ import { useLocation, Navigate, useParams } from 'react-router-dom';
 import GoodAirQuality from '../../components/GoodAirQuality';
 import BadAirQuality from '../../components/BadAirQuality';
 import AirQualityWithImage from '../../components/AirQualityWithImage';
+import bestIcon from '../../assets/img/best_icon.png';
+import goodIcon from '../../assets/img/good_icon.png';
+import badIcon from '../../assets/img/bad_icon.png';
+import worstIcon from '../../assets/img/worst_icon.png';
 
 function getCategory(value) {
-    if(value >= 0 && value <= 15) {
-        return '좋음';
+    if (value >= 0 && value <= 15) {
+        return { category: '좋아요', imageSrc: bestIcon };
     } else if (value >= 16 && value <= 35) {
-        return '보통'
+        return { category: '보통이에요', imageSrc: goodIcon };
     } else if (value >= 36 && value <= 75) {
-        return '나쁨';
-    } else if (value >= 76){
-        return '매우나쁨'
-    }else if (value === "-" || value === "" || value === undefined){
-        return '정보없음'
+        return { category: '나빠요', imageSrc: badIcon };
+    } else if (value >= 76) {
+        return { category: '매우나뻐요', imageSrc: worstIcon };
+    } else if (value === "-" || value === "" || value === undefined) {
+        return { category: '정보없음', imageSrc: 'image-path-5' };
     }
 }
 
@@ -31,22 +35,17 @@ function SearchResult() {
 
     return (
         <section className='searchresult'>
-            <h2>현재 계신 위치: {cityName}</h2>
-            <article>
-
-                {airQualityCategory === '좋음' && <AirQualityWithImage imageSrc="../logo.svg" alt="좋음" text={airQualityCategory} />}
-                {airQualityCategory === '보통' && <AirQualityWithImage imageSrc="../logo.svg" alt="보통" text={airQualityCategory} />}
-                {airQualityCategory === '나쁨' && <AirQualityWithImage imageSrc="../logo.svg" alt="나쁨" text={airQualityCategory} />}
-                {airQualityCategory === '매우나쁨' && <AirQualityWithImage imageSrc="../logo.svg" alt="매우나쁨" text={airQualityCategory} />}
-                
-                <div>
+            <h2 className='searchresult__title'>현재 계신 위치: {cityName}</h2>
+            <article className='searchresult__info'>
+                <AirQualityWithImage imageSrc={airQualityCategory.imageSrc} alt={airQualityCategory.category} text={airQualityCategory.category} />
+                <div className='searchresult__info__bot'>
                     <p>미세먼지: {searchData.pm10Value} µg/m³</p>
                     <p>초미세먼지: {searchData.pm25Value} µg/m³</p>
                 </div>
             </article>
-            <article>
-                {(airQualityCategory === '좋음' || airQualityCategory === '보통') && <GoodAirQuality />} 
-                {(airQualityCategory === '나쁨' || airQualityCategory === '매우나쁨') && <BadAirQuality />} 
+            <article className='searchresult__modal'>
+                {(airQualityCategory.category === '좋아요' || airQualityCategory.category === '보통이에요') && <GoodAirQuality />}
+                {(airQualityCategory.category === '나빠요' || airQualityCategory.category === '매우나뻐요') && <BadAirQuality />}
             </article>
         </section>
     );

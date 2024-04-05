@@ -1,0 +1,32 @@
+.searchweather {
+    @include center-styles;
+    gap: 80px;
+
+    &__title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    &__select {
+        margin-bottom: 15px;
+
+        label {
+            margin-right: 0.5rem;
+            font-size: 1.125rem;
+        }
+
+        select {
+            min-width: 200px;
+            padding: 0.875rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+    }
+
+    button {
+        margin-top: 70px;
+    }
+}

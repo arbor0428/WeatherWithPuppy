@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function AirQualityWithImage({ imageSrc, alt, text }) {
     return (
-        <div>
+        <div className='searchresult__info__top'>
             <img src={imageSrc} alt={alt} />
-            <span>{text}</span>
+            <p>{text}</p>
         </div>
     );
 }

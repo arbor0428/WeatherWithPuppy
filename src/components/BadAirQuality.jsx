@@ -3,7 +3,7 @@ import React from 'react';
 export default function BadAirQuality() {
     return (
         <div>
-            나쁘네에이이이이이이
+            좀 고민을 해봐야 할 것 같아요
         </div>
     );
 }
