@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         element: <SearchCity />
       },
       {
-        path: '/SearchCityResult', 
+        path: '/SearchCity/:cityName', 
         element: <SearchCityResult />
       },
     ],

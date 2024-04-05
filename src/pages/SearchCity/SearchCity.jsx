@@ -42,9 +42,10 @@ function SearchCity() {
     const search = async (selectedCity) => {
         try {
             const result = await fetchSearchResult(selectedSido, selectedCity);
-            navigate('/SearchCityResult', { state: { searchData: result } });
+            const cityName = result.cityName;
+            navigate(`/SearchCity/${cityName}`, { state: { searchData: result } });
 
-            console.log('대기 오염 정보:', result);
+            console.log('result.cityName');
 
         } catch (error) {
             setError(error);

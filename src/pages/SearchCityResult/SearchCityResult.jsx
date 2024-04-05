@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, Navigate } from 'react-router-dom';
+import { useLocation, Navigate, useParams } from 'react-router-dom';
 
 function getCategory(value) {
     if(value >= 0 && value <= 15) {
@@ -16,6 +16,7 @@ function getCategory(value) {
 }
 
 function SearchCityResult() {
+    const { cityName } = useParams();
     const location = useLocation();
     const searchData = location.state.searchData; // Optional chaining 사용
 
@@ -25,7 +26,7 @@ function SearchCityResult() {
 
     return (
         <div>
-            <h2>{searchData.cityName} 대기 오염 정보</h2>
+            <h2>{cityName} 대기 오염 정보</h2>
             <b>{getCategory(searchData.pm10Value)} </b>
             <p>미세먼지: {searchData.pm10Value} µg/m³</p>
             <p>초미세먼지: {searchData.pm25Value} µg/m³</p>
