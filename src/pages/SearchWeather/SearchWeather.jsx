@@ -5,11 +5,11 @@ import NotFound from '../NotFound';
 
 const sidos = ['서울', '부산', '대구', '인천', '광주', '대전', '울산', '경기', '강원', '충북', '충남', '전북', '전남', '경북', '경남', '제주', '세종'];
 
-function SearchCity() {
+function SearchWeather() {
     const [error, setError] = useState(null);
     const [cityNames, setCityNames] = useState([]);
     const [selectedSido, setSelectedSido] = useState('서울');
-    const [selectedCity, setSelectedCity] = useState('');
+    const [selectedCity, setSelectedCity] = useState('강남구');
 
     const navigate = useNavigate();
 
@@ -43,9 +43,9 @@ function SearchCity() {
         try {
             const result = await fetchSearchResult(selectedSido, selectedCity);
             const cityName = result.cityName;
-            navigate(`/SearchCity/${cityName}`, { state: { searchData: result } });
+            navigate(`/SearchWeather/${cityName}`, { state: { searchData: result } });
 
-            console.log('result.cityName');
+           // console.log('result.cityName');
 
         } catch (error) {
             setError(error);
@@ -57,8 +57,8 @@ function SearchCity() {
     }
 
     return (
-        <>
-            <h1>대기 오염 정보 검색</h1>
+        <section className='searchweather'>
+            <h2>살고 계신 도시를 선택해주세요!</h2>
             <form onSubmit={handleSearch}>
                 <label htmlFor="sido">시/도 선택: </label>
                 <select id="sido" value={selectedSido} onChange={handleChangeSido}>
@@ -74,8 +74,8 @@ function SearchCity() {
                 </select>
                 <button type="submit">검색</button>
             </form>
-        </>
+        </section>
     );
 }
 
-export default SearchCity;
+export default SearchWeather;

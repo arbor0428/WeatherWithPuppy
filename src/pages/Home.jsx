@@ -4,14 +4,13 @@ import { Link } from 'react-router-dom';
 function Home() {
 
     return (
-        <>
-            <div className="App">
-                어서오세요 산책날씨도우미입니다
-                <Link to='/SearchCity'>
-                    지역 검색하러가기
-                </Link>
-            </div>
-        </>
+        <section className="welcome">
+            <h1>ClearPaw</h1>
+            <h2>미세먼지 측정 강아지 산책 가이드</h2>
+            <Link className="btn goto" to='/SearchWeather'>
+                측정하기
+            </Link>
+        </section>
     );
 }
 

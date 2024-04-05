@@ -6,8 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Notfound from './pages/NotFound';
 import Home from './pages/Home';
-import SearchCity from './pages/SearchCity/SearchCity';
-import SearchCityResult from './pages/SearchCityResult/SearchCityResult';
+import SearchWeather from './pages/SearchWeather/SearchWeather';
+import SearchResult from './pages/SearchResult/SearchResult';
 
 const router = createBrowserRouter([
   {
@@ -17,12 +17,12 @@ const router = createBrowserRouter([
     children: [
       {index: true, element: <Home />},
       {
-        path: '/SearchCity', 
-        element: <SearchCity />
+        path: '/SearchWeather', 
+        element: <SearchWeather />
       },
       {
-        path: '/SearchCity/:cityName', 
-        element: <SearchCityResult />
+        path: '/SearchWeather/:cityName', 
+        element: <SearchResult />
       },
     ],
   },
