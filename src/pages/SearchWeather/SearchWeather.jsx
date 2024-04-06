@@ -8,26 +8,29 @@ const sidos = ['서울', '부산', '대구', '인천', '광주', '대전', '울�
 function SearchWeather() {
     const [error, setError] = useState(null);
     const [cityNames, setCityNames] = useState([]);
-    const [selectedSido, setSelectedSido] = useState('서울');
-    const [selectedCity, setSelectedCity] = useState('강남구');
+    const [selectedSido, setSelectedSido] = useState('');
+    const [selectedCity, setSelectedCity] = useState('');
 
     const navigate = useNavigate();
 
     useEffect(() => {
         setError(null);
-        const fetchData = async () => {
-            try {
-                const cities = await fetchCityNames(selectedSido);
-                setCityNames(cities);
-            } catch (error) {
-                setError(error);
-            }
-        };
-        fetchData();
+        if (selectedSido !== '') {
+            const fetchData = async () => {
+                try {
+                    const cities = await fetchCityNames(selectedSido);
+                    setCityNames(cities);
+                } catch (error) {
+                    setError(error);
+                }
+            };
+            fetchData();
+        }
     }, [selectedSido]);
 
     const handleChangeSido = (event) => {
         setSelectedSido(event.target.value);
+        setSelectedCity('');
     };
 
     const handleChangeCity = (event) => {
@@ -44,9 +47,6 @@ function SearchWeather() {
             const result = await fetchSearchResult(selectedSido, selectedCity);
             const cityName = result.cityName;
             navigate(`/SearchWeather/${cityName}`, { state: { searchData: result } });
-
-           // console.log('result.cityName');
-
         } catch (error) {
             setError(error);
         }
@@ -63,6 +63,7 @@ function SearchWeather() {
                 <div className='searchweather__select'>
                     <label htmlFor="sido">시/도 선택: </label>
                     <select id="sido" value={selectedSido} onChange={handleChangeSido}>
+                        <option value="">시/도를 선택하세요</option>
                         {sidos.map(sido => (
                             <option key={sido} value={sido}>{sido}</option>
                         ))}
@@ -70,13 +71,14 @@ function SearchWeather() {
                 </div>
                 <div className='searchweather__select'>
                     <label htmlFor="city">시/구 선택: </label>
-                    <select id="city" onChange={handleChangeCity}>
+                    <select id="city" value={selectedCity} onChange={handleChangeCity}>
+                        <option value="">시/구를 선택하세요</option>
                         {cityNames.map((cityName, index) => (
                             <option key={index} value={cityName}>{cityName}</option>
                         ))}
                     </select>
                 </div>
-                <button className='btn' type="submit">검색</button>
+                <button className='btn' type="submit" disabled={!selectedCity}>검색</button>
             </form>
         </section>
     );

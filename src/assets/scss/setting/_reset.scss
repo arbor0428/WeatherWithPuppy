@@ -77,24 +77,32 @@ button {
     color: #000;
 }
 
+/*ios 대응*/
+input,
+textarea {
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /*화살표 배경 넣기*/
+    background: #fff url('../../img/arrow_down.png') no-repeat 94% center;
+}
+
+select::-ms-expand {
+    /* 화살표 없애기 for IE10, 11*/
+    display: none;
+}
+
+
 #root {
     margin: 0 auto;
     max-width: 1200px;
     min-height: 100vh;
-
-    &.blue {
-        background-color: blue;
-    }
-
-    &.green {
-        background-color: green;
-    }
-
-    &.red {
-        background-color: red;
-    }
-
-    &.black {
-        background-color: black;
-    }
 }
