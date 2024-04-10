@@ -28,7 +28,7 @@ function SearchResult() {
     const { cityName } = useParams();
     const location = useLocation();
     const searchData = location.state.searchData; // Optional chaining 사용
-    const [isModalOpen, setIsModalOpen] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     
     const airQualityCategory = getCategory(searchData.pm10Value);
     
@@ -60,7 +60,7 @@ function SearchResult() {
                 <h2 className='searchresult__title'>현재 계신 위치: {cityName}</h2>
                 <article className='searchresult__info'>
                     <AirQualityWithImage imageSrc={airQualityCategory.imageSrc} alt={airQualityCategory.category} text={airQualityCategory.category} />
-                    {!isModalOpen && <button className='modal__open__btn' onClick={handleModalOpen}>모달 열기</button>}
+                    {!isModalOpen && <button className='modal__open__btn' onClick={handleModalOpen}>산책 해결 방법</button>}
                     <div className='searchresult__info__bot'>
                         <p>미세먼지: {searchData.pm10Value} µg/m³</p>
                         <p>초미세먼지: {searchData.pm25Value} µg/m³</p>

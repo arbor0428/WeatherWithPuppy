@@ -39,25 +39,30 @@
         }
 
         .modal__open__btn {
-            margin: 0 auto 40px;
-            padding: 10px 20px;
-            background-color: #007bff;
+            margin: 10px auto;
+            padding: 12px 20px;
+            position: relative;
+            background-color: #9856fd;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 1.125rem;
+            -webkit-animation: twinkle 4s infinite;
+            animation: twinkle 4s infinite;
             z-index: 45;
         }
 
         &__bot {
-            margin: 0 auto;
+            margin: 40px auto 0;
             padding: 20px 50px;
             border-radius: 8px;
-            background-color: var(--gray);
+            background-color: rgb(235, 235, 235, 0.7);
 
             p {
                 padding: 2px 0;
                 font-size: 0.875rem;
+                color: #4c4c4c;
             }
         }
     }
@@ -70,7 +75,7 @@
         background-color: white;
         border: 1px solid #ccc;
         border-radius: 8px;
-        padding: 60px 20px;
+        padding: 60px 40px;
         box-sizing: border-box;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 40;
@@ -84,7 +89,7 @@
             text-align: center;
 
             p {
-                font-size: 3rem;
+                font-size: 2.250rem;
                 font-weight: 700;
             }
 
@@ -103,9 +108,57 @@
             text-align: center;
 
             p {
-                padding-bottom: 40px;
                 font-size: 1.875rem;
                 font-weight: 700;
+            }
+
+            button {
+                margin: 40px auto 50px;
+                font-weight: 600;
+                color: #382b22;
+                text-transform: uppercase;
+                padding: 1.25em 2em;
+                background: #fcf0ff;
+                border: 2px solid #b185ab;
+                border-radius: 0.75em;
+                transform-style: preserve-3d;
+                transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: #eac4f9;
+                    border-radius: inherit;
+                    box-shadow: 0 0 0 2px #b185ab, 0 0.625em 0 0 #f3e2ff;
+                    transform: translate3d(0, 0.75em, -1em);
+                    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+                }
+
+                &:hover {
+                    background: #f7e9ff;
+                    transform: translate(0, 0.25em);
+
+                    &::before {
+                        box-shadow: 0 0 0 2px #b185ab, 0 0.5em 0 0 #ffe3e2;
+                        transform: translate3d(0, 0.5em, -1em);
+                    }
+                }
+
+                &:active {
+                    background: #f7e9ff;
+                    transform: translate(0em, 0.75em);
+
+                    &::before {
+                        box-shadow: 0 0 0 2px #b185ab, 0 0 #ffe3e2;
+                        transform: translate3d(0, 0, -1em);
+                    }
+                }
             }
 
             .roulette {
@@ -115,15 +168,6 @@
                 align-items: center;
                 flex-direction: column;
                 position: relative;
-
-                button {
-                    margin: 40px auto 0;
-                    background-color: #007bff;
-                    color: white;
-                    padding: 10px 20px;
-                    border-radius: 5px;
-                    cursor: pointer;
-                }
             }
 
             .roulette::before {
@@ -149,4 +193,41 @@
         }
     }
 
+}
+
+
+@keyframes twinkle {
+
+    5%,
+    50% {
+        transform: scale(1);
+    }
+
+    10% {
+        transform: scale(0.9);
+    }
+
+    15% {
+        transform: scale(1.15);
+    }
+
+    20% {
+        transform: scale(1.15) rotate(-5deg);
+    }
+
+    25% {
+        transform: scale(1.15) rotate(5deg);
+    }
+
+    30% {
+        transform: scale(1.15) rotate(-3deg);
+    }
+
+    35% {
+        transform: scale(1.15) rotate(2deg);
+    }
+
+    40% {
+        transform: scale(1.15) rotate(0);
+    }
 }

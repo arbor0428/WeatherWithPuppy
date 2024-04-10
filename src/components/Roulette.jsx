@@ -4,7 +4,7 @@ const product = [
     "그래도 산책 나가기", '집에서 공놀이 1시간', "집에서 숨바꼭질 1시간", "실내 애견카페 가기"
 ];
 
-const colors = [ "#f7a416", "#169ed8", "#3f297e", "#87207b", "#be107f", "#e7167b"];
+const colors = [ "#a19afe", "#9afee2", "#fe9a9a", "#fee79a", "#9accfe"];
 
 const Roulette = () => {
     const canvasRef = useRef(null);
@@ -25,8 +25,8 @@ const Roulette = () => {
             ctx.closePath();
         }
 
-        ctx.fillStyle = "#fff";
-        ctx.font = "18px Pretendard";
+        ctx.fillStyle = "#000";
+        ctx.font = "16px Pretendard";
         ctx.textAlign = "center";
 
         for (let i = 0; i < product.length; i++) {
@@ -71,10 +71,12 @@ const Roulette = () => {
     };
 
     return (
-        <div className="roulette">
-        <canvas ref={canvasRef} width={300} height={300}></canvas>
-        <button onClick={rotate}>룰렛 돌리기</button>
-        </div>
+        <>
+            <button onClick={rotate}>룰렛 돌리기</button>
+            <div className="roulette">
+                <canvas ref={canvasRef} width={300} height={300}></canvas>
+            </div>
+        </>
     );
 };
 
