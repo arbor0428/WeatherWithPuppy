@@ -1,3 +1,13 @@
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 38;
+}
+
 .searchresult {
     @include center-styles;
     gap: 40px;
@@ -28,6 +38,17 @@
             }
         }
 
+        .modal__open__btn {
+            margin: 0 auto 40px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 45;
+        }
+
         &__bot {
             margin: 0 auto;
             padding: 20px 50px;
@@ -42,10 +63,90 @@
     }
 
     &__modal {
-        div {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 60px 20px;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 40;
+        display: flex;
+        flex-direction: column;
+        min-width: 370px;
+        max-height: 95%;
+        overflow: auto;
+
+        .goWalk__box {
             text-align: center;
-            font-size: 1.875rem;
-            font-weight: 700;
+
+            p {
+                font-size: 3rem;
+                font-weight: 700;
+            }
+
+            img {
+                padding: 20px 0;
+                max-height: 300px;
+            }
+
+            audio {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
+        .thinking__box {
+            text-align: center;
+
+            p {
+                padding-bottom: 40px;
+                font-size: 1.875rem;
+                font-weight: 700;
+            }
+
+            .roulette {
+                width: 100%;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                position: relative;
+
+                button {
+                    margin: 40px auto 0;
+                    background-color: #007bff;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            }
+
+            .roulette::before {
+                content: "";
+                position: absolute;
+                width: 10px;
+                height: 50px;
+                border-radius: 5px;
+                background: #000;
+                top: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 22;
+            }
+        }
+
+        .modal__close__btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 25px;
         }
     }
+
 }

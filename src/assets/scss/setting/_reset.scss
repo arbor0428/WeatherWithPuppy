@@ -66,13 +66,13 @@ strong {
 
 img {
     vertical-align: top;
-    width: 100%;
 }
 
 button {
     display: block;
     border: none;
     outline: none;
+    background-color: transparent;
     font-family: var(--Main-font);
     color: #000;
 }
@@ -98,11 +98,4 @@ select {
 select::-ms-expand {
     /* 화살표 없애기 for IE10, 11*/
     display: none;
-}
-
-
-#root {
-    margin: 0 auto;
-    max-width: 1200px;
-    min-height: 100vh;
 }
