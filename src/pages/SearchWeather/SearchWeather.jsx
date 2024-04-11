@@ -20,6 +20,7 @@ function SearchWeather() {
                 try {
                     const cities = await fetchCityNames(selectedSido);
                     setCityNames(cities);
+                    console.log(cities)
                 } catch (error) {
                     setError(error);
                 }
