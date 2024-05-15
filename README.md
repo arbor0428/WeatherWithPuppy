@@ -15,7 +15,6 @@
 - 공공데이터 API(https://www.data.go.kr/)에서 key를 획득하고 	한국환경공단_에어코리아 api를 활성화시킵니다.
 - react.js(https://react.dev/) 를 사용하여 사이트를 번들링하고 관리합니다.
 - react-router-dom(https://reactrouter.com/en/main)를 활용해서 애플리케이션의 네비게이션과 라우팅을 관리합니다.
-- react-query(https://tanstack.com/query/v3/)훅을 사용하여 데이터를 관리하고 상태를 처리할 수 있습니다.
 - axios(https://github.com/axios/axios)를 사용하여 API에서 데이터를 가져와 React 컴포넌트에 표시할 수 있습니다.
 - react-icons(https://react-icons.github.io/react-icons/) 를 이용하여 아이콘들을 활용했습니다.
 - scss(https://sass-lang.com/)를 사용해서 스타일링을 해줍니다.
@@ -26,7 +25,6 @@
 ## 프로젝트 실행
 - react를 설치합니다. `npm install -g create-react-app`
 - react-router-dom를 설치합니다. `npm install react-router-dom`
-- react-query를 설치합니다. `npm install react-query`
 - react-icons를 설치합니다. `npm install react-icon ==save`
 - axios를 설치합니다 `npm install axios`
 - scss를 설치합니다. `npm install node-sass`
