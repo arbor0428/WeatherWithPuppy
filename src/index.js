@@ -8,6 +8,8 @@ import Notfound from './pages/NotFound';
 import Home from './pages/Home';
 import SearchWeather from './pages/SearchWeather/SearchWeather';
 import SearchResult from './pages/SearchResult/SearchResult';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
     errorElement: <Notfound />,
     children: [
       {index: true, element: <Home />},
+      {
+        path: '/LoginPage', 
+        element: <LoginPage />
+      },
+      {
+        path: '/RegisterPage', 
+        element: <RegisterPage />
+      },
       {
         path: '/SearchWeather', 
         element: <SearchWeather />
