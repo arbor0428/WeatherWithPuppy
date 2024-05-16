@@ -35,11 +35,13 @@ export default function RegisterPage() {
         let formErrors = {};
         let isValid = true;
 
+        //이름 유효성 검사
         if (!displayName.trim()) {
             formErrors.displayName = "이름을 입력해주세요.";
             isValid = false;
         }
 
+        //이메일 유효성 검사
         if (!registerEmail.trim()) {
             formErrors.registerEmail = "이메일을 입력해주세요.";
             isValid = false;
@@ -48,11 +50,13 @@ export default function RegisterPage() {
             isValid = false;
         }
 
+        // 비밀번호 유효성 검사: 숫자, 영문자, 특수문자 조합, 8자리 이상
+        const passwordRegex = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
         if (!registerPassword.trim()) {
             formErrors.registerPassword = "비밀번호를 입력해주세요.";
             isValid = false;
-        } else if (registerPassword.length < 6) {
-            formErrors.registerPassword = "비밀번호는 최소 6자리여야 합니다.";
+        } else if (!passwordRegex.test(registerPassword)) {
+            formErrors.registerPassword = "숫자, 영문자, 특수문자 조합으로 8자리 이상 입력해주세요.";
             isValid = false;
         }
 
@@ -61,7 +65,7 @@ export default function RegisterPage() {
     };
 
     const register = async (e) => {
-        e.preventDefault();  // 폼 제출의 기본 동작을 막습니다.
+        e.preventDefault(); 
         
         if (!validateForm()) {
             return;

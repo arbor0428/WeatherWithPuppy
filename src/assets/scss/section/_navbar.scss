@@ -1,0 +1,35 @@
+.navbar {
+    position: fixed;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--gray);
+
+    &__user {
+        display: flex;
+        align-items: center;
+
+        &__name {
+            padding: 0 20px;
+            display: flex;
+
+            span {
+                padding: 0 10px;
+            }
+        }
+    }
+
+    &__userbtn {
+        display: block;
+        margin: 0 auto;
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: var(--gray);
+        font-size: 1rem;
+        font-weight: 500;
+    }
+}

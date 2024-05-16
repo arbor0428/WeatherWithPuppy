@@ -10,6 +10,7 @@ export default function LoginPage() {
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
 
+    //유효성검사
     const validateForm = () => {
         let formErrors = {};
         let isValid = true;
@@ -43,9 +44,18 @@ export default function LoginPage() {
             console.log(user);
 
             alert("로그인이 성공했습니다."); // 로그인이 성공했을 때 alert 창 표시
-            navigate("/SearchWeather");
+            navigate("/SearchWeather"); //이후 페이지 이동
+
         } catch (error) {
-            alert(error.message); // 오류 메시지를 alert 창에 표시
+
+            if (error.code === "auth/invalid-email") {
+                alert("이메일 주소가 올바르지 않습니다.");
+            } else if (error.code === "auth/wrong-password") {
+                alert("비밀번호가 올바르지 않습니다.");
+            } else {
+                alert("로그인에 실패했습니다.");
+            }
+            
         }
     };
 
