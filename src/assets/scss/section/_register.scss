@@ -1,0 +1,78 @@
+.register {
+
+    @include center-styles;
+
+    &__title {
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 900;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-width: 360px;
+        padding: 40px 60px;
+        border-radius: 20px;
+        box-shadow: 2px 2px 20px 2px rgb(0 0 0 / 8%);
+
+        @media (max-width: 800px) {
+            width: 90%;
+            min-width: auto;
+            box-sizing: border-box;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        &__imagepreview {
+            display: block;
+            margin: 10px auto;
+            max-width: 330px;
+        }
+
+        &__inputbox {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 20px 0 0 0;
+
+            label {
+                flex-basis: 30%;
+            }
+
+            input {
+                flex-basis: 70%;
+                padding: 10px 5px;
+                border-radius: 4px;
+                border: 1px solid var(--gray);
+            }
+        }
+
+        &__inputbox.error {
+            input {
+                flex-basis: 70%;
+                padding: 10px 5px;
+                border-radius: 4px;
+                border: 1px solid red;
+            }
+        }
+
+        &__errormessage {
+            color: red;
+            font-size: 0.875rem;
+            text-align: right;
+        }
+
+        .btn {
+            width: 100%;
+            margin-top: 25px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+    }
+}
