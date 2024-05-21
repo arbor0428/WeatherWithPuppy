@@ -103,7 +103,7 @@ export default function RegisterPage() {
             });
 
             alert('회원가입이 완료되었습니다.');
-            navigate("/LoginPage");
+            navigate("/SearchWeather");
 
         } catch (error) {
             alert(error.message); // 오류 메시지를 alert 창에 표시

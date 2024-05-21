@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaRegUser } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import { signOut } from "firebase/auth";
+import { signOut, onAuthStateChanged  } from "firebase/auth";
 import { auth } from "../api/firebase";
 
 export default function Navbar() {
@@ -10,16 +10,18 @@ export default function Navbar() {
 
     //로그인 되어 있을 시 displayName 가져오기
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged(user => {
-            setIsLoggedIn(!!user);
+        const unsubscribe = onAuthStateChanged(auth, user => {
             if (user) {
+                setIsLoggedIn(true);
                 setUserName(user.displayName);
             } else {
+                setIsLoggedIn(false);
                 setUserName('');
             }
         });
         return unsubscribe;
     }, []);
+
 
     const handleLogout = async () => {
         try {
